@@ -1,0 +1,4 @@
+web/node_modules
+*.pyc
+server/app/ar
+web/pages/ar
