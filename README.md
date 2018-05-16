@@ -1,4 +1,4 @@
-# Voting on blockchain
+# Decentralized twitter application on blockchain
 
 1. Create *twitter* directory and copy repo to it
 ```

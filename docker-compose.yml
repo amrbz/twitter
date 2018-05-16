@@ -13,7 +13,7 @@ services:
     command: bash -c "npm install -y && npm run dev"
 
   server:
-    build: ./server
+    build: ./server 
     volumes:
       - ./server:/opt/web
     ports:
