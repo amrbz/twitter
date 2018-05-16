@@ -4,7 +4,6 @@ api = Blueprint('api', __name__)
 from . import (
     authentication,
     errors,
-    filehash,
     users,
     tweets
 )
