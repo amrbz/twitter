@@ -6,45 +6,45 @@ services:
     volumes:
       - ./web:/opt/web
     ports:
-      - 7600:3000
-    depends_on:
-      - server
+      - 7700:3000
+    # depends_on:
+      # - server
     restart: unless-stopped
     command: bash -c "npm install -y && npm run dev"
 
-  server:
-    build: ./server 
-    volumes:
-      - ./server:/opt/web
-    ports:
-      - 7610:80
-    depends_on:
-      - crate
-    restart: unless-stopped
-    tty: true
-    stdin_open: true
+  # server:
+  #   build: ./server 
+  #   volumes:
+  #     - ./server:/opt/web
+  #   ports:
+  #     - 7610:80
+  #   depends_on:
+  #     - crate
+  #   restart: unless-stopped
+  #   tty: true
+  #   stdin_open: true
 
-  ipfs:
-    image: jbenet/go-ipfs:latest
-    volumes:
-      - /mnt/data/ipfs/ipfs-docker-data:/data/ipfs
-    ports:
-      - 4001:4001
-      - 127.0.0.1:5001:5001
-      - 8080:8080
-    restart: unless-stopped
-    tty: true
-    stdin_open: true
+  # ipfs:
+  #   image: jbenet/go-ipfs:latest
+  #   volumes:
+  #     - /mnt/data/ipfs/ipfs-docker-data:/data/ipfs
+  #   ports:
+  #     - 4001:4001
+  #     - 127.0.0.1:5001:5001
+  #     - 8080:8080
+  #   restart: unless-stopped
+  #   tty: true
+  #   stdin_open: true
 
-  crate:
-    image: crate
-    ports:
-      - 4206:4200
-      - 4306:4300
-    environment:
-      CRATE_HEAP_SIZE: 1g
-      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
-    volumes:
-      - /mnt/data/crate/twitter:/data
-    command: crate -Cnetwork.host=_site_
-    restart: unless-stopped
+  # crate:
+  #   image: crate
+  #   ports:
+  #     - 4206:4200
+  #     - 4306:4300
+  #   environment:
+  #     CRATE_HEAP_SIZE: 1g
+  #     ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+  #   volumes:
+  #     - /mnt/data/crate/twitter:/data
+  #   command: crate -Cnetwork.host=_site_
+  #   restart: unless-stopped
